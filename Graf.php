@@ -22,9 +22,9 @@ class Graf {
     private $csucsok = [];
 
     /**
-     * Létehoz egy úgy, N pontú gárfot, élek nélkül.
+     * Létehoz egy úgy, N pontú gráfot, élek nélkül.
      * 
-     * @param int $csucsok A gráf pontjainak száma
+     * @param int $csucsok A gráf csúcsainak száma
      */
     public function __construct($csucsok) {
         $this->csucsokSzama = $csucsok;
