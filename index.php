@@ -13,5 +13,5 @@ $graf->hozzaad(3, 4);
 $graf->hozzaad(4, 5);
 $graf->hozzaad(2, 4);
 
-print_r($graf);
+print($graf);
 

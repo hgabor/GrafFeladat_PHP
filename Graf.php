@@ -65,4 +65,16 @@ class Graf {
         
         $this->elek[] = new El($cs1, $cs2);
     }
+    
+    public function __toString() {
+        $str = "Csucsok:\n";
+        foreach ($this->csucsok as $cs) {
+            $str .= $cs . "\n";
+        }
+        $str .= "Elek:\n";
+        foreach ($this->elek as $el) {
+            $str .= $el . "\n";
+        }
+        return $str;
+    }
 }
