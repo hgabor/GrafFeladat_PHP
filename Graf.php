@@ -9,13 +9,16 @@ class Graf {
      */
     private $csucsokSzama;
     /**
-     * A gráf élei
+     * A gráf élei.
+     * Ha a lista tartalmaz egy (A,B) élt, akkor tartalmaznia kell
+     * a (B,A) vissza irányú élt is.
      * 
      * @var El[]
      */
     private $elek = [];
     /**
-     * A gráf csúcsai
+     * A gráf csúcsai.
+     * A gráf létrehozása után új csúcsot nem lehet felvenni.
      * 
      * @var Csucs[]
      */
@@ -36,7 +39,9 @@ class Graf {
     }
     
     /**
-     * Hozzáad egy új élt a gráfhoz
+     * Hozzáad egy új élt a gráfhoz.
+     * Mindkét csúcsnak érvényesnek kell lennie:
+     * 0 &lt;= cs &lt; csúcsok száma.
      * 
      * @param int $cs1 Az él egyik pontja
      * @param int $cs2 Az él másik pontja
@@ -48,14 +53,6 @@ class Graf {
             throw new Exception("Hibas csucs index");
         }
         
-        // $cs1 mindig legyen kisebb, mint $cs2
-        // Ha nem, akkor cseréljük meg
-        if ($cs2 < $cs1) {
-            $tmp = $cs1;
-            $cs1 = $cs2;
-            $cs2 = $tmp;
-        }
-        
         // Ha már szerepel az él, akkor nem kell felvenni
         foreach ($this->elek as $el) {
             if ($el->getCsucs1() === $cs1 && $el->getCsucs2() === $cs2) {
@@ -64,6 +61,7 @@ class Graf {
         }
         
         $this->elek[] = new El($cs1, $cs2);
+        $this->elek[] = new El($cs2, $cs1);
     }
     
     public function __toString() {
