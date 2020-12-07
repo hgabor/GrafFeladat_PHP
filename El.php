@@ -23,29 +23,29 @@ class El {
      * @param int $cs1 Az egyik csúcs indexe
      * @param int $cs2 A másik csúcs indexe
      */
-    public function __construct($cs1, $cs2) {
+    public function __construct(int $cs1, int $cs2) {
         $this->csucs1 = $cs1;
         $this->csucs2 = $cs2;
-    }
-    
-    /**
-     * A másik csúcs indexe
-     * @return int
-     */
-    public function getCsucs1() {
-        return $this->csucs1;
-        
     }
     
     /**
      * Az egyik csúcs indexe
      * @return int
      */
-    public function getCsucs2() {
+    public function getCsucs1() : int {
+        return $this->csucs1;
+        
+    }
+    
+    /**
+     * A másik csúcs indexe
+     * @return int
+     */
+    public function getCsucs2() : int {
         return $this->csucs2;
     }
     
-    public function __toString() {
+    public function __toString() : string {
         return sprintf("(%d - %d)", $this->csucs1, $this->csucs2);
     }
 }

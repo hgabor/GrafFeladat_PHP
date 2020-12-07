@@ -29,7 +29,7 @@ class Graf {
      * 
      * @param int $csucsok A gráf csúcsainak száma
      */
-    public function __construct($csucsok) {
+    public function __construct(int $csucsok) {
         $this->csucsokSzama = $csucsok;
         
         // Minden csúcsnak hozzunk létre egy új objektumot
@@ -47,7 +47,7 @@ class Graf {
      * @param int $cs2 Az él másik pontja
      * @throws Exception A csúcs indexe hibás
      */
-    public function hozzaad($cs1, $cs2) {
+    public function hozzaad(int $cs1, int $cs2) : void {
         if ($cs1 < 0 || $cs1 >= $this->csucsokSzama ||
             $cs2 < 0 || $cs2 >= $this->csucsokSzama) {
             throw new Exception("Hibas csucs index");
@@ -64,7 +64,7 @@ class Graf {
         $this->elek[] = new El($cs2, $cs1);
     }
     
-    public function __toString() {
+    public function __toString() : string {
         $str = "Csucsok:\n";
         foreach ($this->csucsok as $cs) {
             $str .= $cs . "\n";

@@ -16,11 +16,11 @@ class Csucs {
      * 
      * @param int $id A csúcs azonosítója a gráfban
      */
-    public function __construct($id) {
+    public function __construct(int $id) {
         $this->id = $id;
     }
     
-    public function __toString() {
+    public function __toString() : string {
         return strval($this->id);
     }
 }
